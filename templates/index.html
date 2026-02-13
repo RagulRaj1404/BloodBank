@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blood Bank</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="/"><span>🩸</span> Blood Bank</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about">About Us</a>
+        <a href="/donate">Donate Blood</a>
+        <a href="/get-involved">Get Involved</a>
+        <a class="nav-btn" href="/contact">Contact Us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-text">
+      <h1><span class="red">Donate Blood</span>, Save a Life</h1>
+      <p>Your blood can give someone another chance at life.</p>
+
+      <div class="hero-actions">
+        <a class="btn-primary" href="/donate">Donate Now</a>
+        <a class="btn-outline" href="/login">Login</a>
+      </div>
+
+      <div class="search-box">
+        <h3>Find a Blood Donor Near You</h3>
+        <p>Search by blood group and city after login.</p>
+        <a class="btn-secondary" href="/login">Search Donor</a>
+      </div>
+    </div>
+
+    <div class="hero-img">
+      <img src="{{ url_for('static', filename='img/hero.png') }}" alt="Hero Image">
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="features">
+    <div class="feature">
+      <div class="icon">❤️</div>
+      <h3>Why Donate?</h3>
+      <p>Donating blood helps save lives and improves community health.</p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">🤝</div>
+      <h3>Become a Volunteer</h3>
+      <p>Join donation drives and help patients get support faster.</p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">📋</div>
+      <h3>Blood Donation Facts</h3>
+      <p>Learn eligibility rules and how donation works.</p>
+    </div>
+  </div>
+
+</body>
+</html>

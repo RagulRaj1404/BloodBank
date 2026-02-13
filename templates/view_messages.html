@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>View Messages</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="/"><span>🩸</span> Blood Bank</a>
+      <div class="nav-links">
+        <a href="/dashboard">Dashboard</a>
+        <a class="nav-btn" href="/logout">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="card">
+      <h1>Contact Messages</h1>
+      <p class="subtitle">Messages received from Contact Us page</p>
+
+      {% if messages %}
+        <table class="table">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Message</th>
+          </tr>
+
+          {% for m in messages %}
+          <tr>
+            <td>{{ m[1] }}</td>
+            <td>{{ m[2] }}</td>
+            <td>{{ m[3] }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      {% else %}
+        <p style="text-align:center;color:#6b7280;font-weight:800;">
+          No messages yet.
+        </p>
+      {% endif %}
+
+      <a class="btn-outline full-btn" href="/dashboard">Back</a>
+    </div>
+  </div>
+
+</body>
+</html>

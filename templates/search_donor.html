@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Donor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="/"><span>🩸</span> Blood Bank</a>
+      <div class="nav-links">
+        <a href="/dashboard">Dashboard</a>
+        <a class="nav-btn" href="/logout">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="card">
+      <h1>Search Donor</h1>
+      <p class="subtitle">Search by blood group and city</p>
+
+      <form method="POST">
+        <label>Blood Group</label>
+        <select name="blood_group" required>
+          <option>A+</option><option>A-</option>
+          <option>B+</option><option>B-</option>
+          <option>O+</option><option>O-</option>
+          <option>AB+</option><option>AB-</option>
+        </select>
+
+        <label>City</label>
+        <input type="text" name="city" required>
+
+        <button type="submit">Search</button>
+      </form>
+
+      {% if donors %}
+        <h2 style="margin-top:20px;">Results</h2>
+        <table class="table">
+          <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Blood Group</th>
+            <th>City</th>
+          </tr>
+          {% for d in donors %}
+          <tr>
+            <td>{{ d[1] }}</td>
+            <td>{{ d[2] }}</td>
+            <td>{{ d[3] }}</td>
+            <td>{{ d[4] }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      {% endif %}
+
+      <a class="btn-outline full-btn" href="/dashboard">Back to Dashboard</a>
+    </div>
+  </div>
+
+</body>
+</html>

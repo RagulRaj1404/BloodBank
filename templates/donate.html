@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Donate Blood</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="/"><span>🩸</span> Blood Bank</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about">About Us</a>
+        <a href="/donate">Donate Blood</a>
+        <a href="/get-involved">Get Involved</a>
+        <a class="nav-btn" href="/contact">Contact Us</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="card">
+      <h1>Donate Blood</h1>
+      <p class="subtitle">
+        Become a donor and save lives ❤️
+      </p>
+
+      <p>
+        Create an account and register as a donor. Patients can search you by
+        blood group and city.
+      </p>
+
+      <a class="btn-primary full-btn" href="/register">Create Account</a>
+      <a class="btn-outline full-btn" href="/login">Login</a>
+    </div>
+  </div>
+
+</body>
+</html>

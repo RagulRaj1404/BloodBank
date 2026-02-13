@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="/"><span>🩸</span> Blood Bank</a>
+
+      <div class="nav-links">
+        <a href="/dashboard">Dashboard</a>
+
+        {% if session.get("user_email") == "ragulraj1625@gmail.com" %}
+          <a href="/admin">Admin</a>
+          <a href="/view-messages">Messages</a>
+          <a href="/view-requests">Requests</a>
+        {% endif %}
+
+        <a class="nav-btn" href="/logout">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE -->
+  <div class="page">
+    <div class="card">
+      <h1>Dashboard</h1>
+
+      <p class="subtitle">
+        Welcome {{ session["user_name"] }} 👋
+        {% if session.get("user_email") == "ragulraj1625@gmail.com" %}
+          <span style="
+            background:#fff3f5;
+            color:#e11d2e;
+            padding:6px 12px;
+            border-radius:999px;
+            font-weight:900;
+            margin-left:10px;
+            display:inline-block;
+            border:1px solid #ffd6db;
+          ">
+            ADMIN
+          </span>
+        {% endif %}
+      </p>
+
+      <!-- FLASH MESSAGE -->
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="flash">
+            {{ messages[0] }}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <!-- DASHBOARD BUTTONS -->
+      <div class="dash-links">
+        <a class="dash-btn" href="/donor-register">🧑‍⚕️ Register Donor</a>
+        <a class="dash-btn" href="/search-donor">🔍 Search Donor</a>
+        <a class="dash-btn" href="/request-blood">🩸 Request Blood</a>
+
+        {% if session.get("user_email") == "ragulraj1625@gmail.com" %}
+          <a class="dash-btn" href="/admin">👑 Admin Panel</a>
+          <a class="dash-btn" href="/view-requests">📋 View Requests</a>
+          <a class="dash-btn" href="/view-messages">💬 View Messages</a>
+        {% endif %}
+      </div>
+
+      <a class="btn-outline full-btn" href="/">Back to Home</a>
+    </div>
+  </div>
+
+</body>
+</html>

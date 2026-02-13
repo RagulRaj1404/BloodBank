@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>View Requests</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="/"><span>🩸</span> Blood Bank</a>
+      <div class="nav-links">
+        <a href="/dashboard">Dashboard</a>
+        <a class="nav-btn" href="/logout">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="card">
+      <h1>Blood Requests</h1>
+      <p class="subtitle">All submitted requests</p>
+
+      {% if requests %}
+        <table class="table">
+          <tr>
+            <th>Patient</th>
+            <th>Phone</th>
+            <th>Blood Group</th>
+            <th>Units</th>
+            <th>City</th>
+            <th>Reason</th>
+          </tr>
+
+          {% for r in requests %}
+          <tr>
+            <td>{{ r[1] }}</td>
+            <td>{{ r[2] }}</td>
+            <td>{{ r[3] }}</td>
+            <td>{{ r[4] }}</td>
+            <td>{{ r[5] }}</td>
+            <td>{{ r[6] }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      {% else %}
+        <p>No requests found.</p>
+      {% endif %}
+
+      <a class="btn-outline full-btn" href="/dashboard">Back to Dashboard</a>
+    </div>
+  </div>
+
+</body>
+</html>

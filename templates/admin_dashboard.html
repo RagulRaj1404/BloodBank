@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="nav-inner">
+      <!-- Clicking Blood Bank goes to Home -->
+      <a class="brand" href="/"><span>🩸</span> Blood Bank</a>
+
+      <div class="nav-links">
+        <a href="/dashboard">User Dashboard</a>
+        <a class="nav-btn" href="/logout">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE -->
+  <div class="page">
+    <div class="card">
+
+      <h1>Admin Panel</h1>
+
+      <p class="subtitle">
+        Welcome Admin 👑 {{ session["user_name"] }}
+
+        <span style="
+          background:#fff3f5;
+          color:#e11d2e;
+          padding:6px 12px;
+          border-radius:999px;
+          font-weight:900;
+          margin-left:10px;
+          display:inline-block;
+          border:1px solid #ffd6db;
+        ">
+          ADMIN ACCESS
+        </span>
+      </p>
+
+      <!-- FLASH MESSAGE -->
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="flash">
+            {{ messages[0] }}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <!-- STATS (INSIDE CARD) -->
+      <div class="stats">
+        <div class="stat-card">
+          <h3>Total Donors</h3>
+          <p>{{ total_donors }}</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Total Requests</h3>
+          <p>{{ total_requests }}</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Total Messages</h3>
+          <p>{{ total_messages }}</p>
+        </div>
+      </div>
+
+      <h2 style="margin-top:25px;">Quick Actions</h2>
+
+      <div class="dash-links">
+        <a class="dash-btn" href="/view-messages">💬 View Contact Messages</a>
+        <a class="dash-btn" href="/view-requests">📋 View Blood Requests</a>
+        <a class="dash-btn" href="/search-donor">🔍 Search Donors</a>
+        <a class="dash-btn" href="/donor-register">🧑‍⚕️ Add Donor</a>
+      </div>
+
+      <a class="btn-outline full-btn" href="/dashboard">Back to Dashboard</a>
+
+    </div>
+  </div>
+
+</body>
+</html>
